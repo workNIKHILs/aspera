@@ -1,0 +1,316 @@
+/**
+ * ASPERA — Entrepreneurship Cell | VVCE Mysuru
+ * Background & Refined Holographic Watermark Visual Engine Stylesheet
+ * 
+ * Theme: Dark Navy & Charcoal Base (#080D14) with Subtle Graphite/Cyan Lighting
+ * Watermark: Hexagonal ASPERA Symbol at Low Opacity with Restrained Glitch & RGB Separation
+ */
+
+/* ==========================================================================
+   1. FIXED BACKGROUND CONTAINER
+   ========================================================================== */
+.bg-layer-system {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none !important;
+  user-select: none;
+  z-index: 0;
+  background-color: var(--color-bg-primary);
+}
+
+/* Deep Charcoal & Navy (#080D14) with subtle graphite-grey gradients & soft lighting */
+.bg-gradient-depth {
+  position: absolute;
+  inset: 0;
+  background: 
+    /* Top-left soft ambient graphite illumination */
+    radial-gradient(ellipse 70% 60% at 15% 12%, rgba(0, 163, 217, 0.035) 0%, rgba(255, 255, 255, 0.008) 45%, transparent 70%),
+    /* Center subtle cool graphite bloom */
+    radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0, 143, 255, 0.025) 0%, rgba(255, 255, 255, 0.01) 35%, transparent 70%),
+    /* Bottom-right soft graphite wash */
+    radial-gradient(ellipse 70% 60% at 85% 85%, rgba(0, 163, 217, 0.02) 0%, transparent 65%),
+    /* Primary deep background base */
+    linear-gradient(180deg, #080D14 0%, #06090F 55%, #04060A 100%);
+}
+
+/* ==========================================================================
+   2. TACTILE GRIT, FINE SCANLINES & VIGNETTE
+   ========================================================================== */
+/* Very subtle procedural film grain for depth */
+.bg-grit-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: var(--texture-grit-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.95 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Fine horizontal scanlines (subtle and much less prominent) */
+.bg-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(255, 255, 255, 0.006) 3px,
+    rgba(255, 255, 255, 0.006) 4px
+  );
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* Soft dark vignette framing */
+.bg-vignette {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 180px rgba(4, 6, 10, 0.75);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3. ARCHITECTURAL PERIMETER ACCENTS
+   ========================================================================== */
+.bg-crosshair {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.bg-crosshair::before,
+.bg-crosshair::after {
+  content: '';
+  position: absolute;
+  background-color: rgba(248, 250, 252, 0.3);
+}
+
+.bg-crosshair::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.bg-crosshair::after {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.crosshair-pos-1 {
+  top: 48%;
+  right: 15%;
+}
+
+.crosshair-pos-2 {
+  bottom: 27%;
+  left: 4%;
+}
+
+.bg-vertical-text {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.vertical-left {
+  left: 2.25rem;
+  top: 52%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: center center;
+}
+
+.vertical-right {
+  right: 2.25rem;
+  top: 52%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center center;
+}
+
+/* ==========================================================================
+   4. CENTRAL WATERMARK: HEXAGONAL ASPERA SYMBOL
+   ========================================================================== */
+.watermark-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -49%);
+  width: clamp(220px, 28vw, 380px);
+  max-width: 90vw;
+  max-height: 52vh;
+  aspect-ratio: 156 / 169;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.6s var(--ease-smooth);
+}
+
+.hologram-watermark-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.holo-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.holo-base {
+  opacity: var(--watermark-opacity);
+  filter: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  will-change: transform, opacity;
+}
+
+.holo-slice-1,
+.holo-slice-2 {
+  opacity: 0;
+  will-change: transform, opacity, clip-path;
+}
+
+.holo-fringe {
+  opacity: 0;
+  filter: 
+    drop-shadow(-3px 0 0 var(--color-glitch-cyan))
+    drop-shadow(3px 0 0 var(--color-glitch-white));
+  will-change: transform, opacity;
+}
+
+.holo-scanline-bar {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.25) 25%, 
+    rgba(0, 163, 217, 0.45) 50%, 
+    rgba(255, 255, 255, 0.25) 75%, 
+    transparent 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Glitch Trigger States */
+.hologram-watermark-wrap.is-glitching .holo-slice-1 {
+  animation: burst-slice1 0.18s steps(1) forwards !important;
+}
+
+.hologram-watermark-wrap.is-glitching .holo-slice-2 {
+  animation: burst-slice2 0.18s steps(1) forwards !important;
+}
+
+.hologram-watermark-wrap.is-glitching .holo-fringe {
+  animation: burst-fringe 0.18s steps(1) forwards !important;
+}
+
+.hologram-watermark-wrap.is-glitching .holo-base {
+  animation: burst-base 0.18s ease-out forwards !important;
+}
+
+.hologram-watermark-wrap.is-glitching .holo-scanline-bar {
+  animation: burst-scan 0.18s linear forwards !important;
+}
+
+/* Keyframes */
+@keyframes burst-slice1 {
+  0% { opacity: 0; transform: translate(0, 0); }
+  25% { opacity: 0.15; transform: translate(-4px, 0); clip-path: polygon(0 20%, 100% 20%, 100% 44%, 0 44%); }
+  60% { opacity: 0.12; transform: translate(3px, 0); clip-path: polygon(0 56%, 100% 56%, 100% 78%, 0 78%); }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+
+@keyframes burst-slice2 {
+  0% { opacity: 0; transform: translate(0, 0); }
+  35% { opacity: 0.14; transform: translate(4px, 0); clip-path: polygon(0 40%, 100% 40%, 100% 64%, 0 64%); }
+  70% { opacity: 0.10; transform: translate(-3px, 0); clip-path: polygon(0 10%, 100% 10%, 100% 28%, 0 28%); }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+
+@keyframes burst-fringe {
+  0% { opacity: 0; transform: translate(0, 0); }
+  30% { opacity: 0.16; transform: translate(-2.5px, 0); }
+  65% { opacity: 0.14; transform: translate(2px, 0); }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+
+@keyframes burst-base {
+  0% { transform: translate(0, 0); opacity: var(--watermark-opacity); }
+  25% { transform: translate(-2px, 0); opacity: 0.13; }
+  60% { transform: translate(2px, 0); opacity: 0.08; }
+  100% { transform: translate(0, 0); opacity: var(--watermark-opacity); }
+}
+
+@keyframes burst-scan {
+  0% { top: 18%; opacity: 0; }
+  35% { top: 48%; opacity: 0.22; }
+  70% { top: 78%; opacity: 0.15; }
+  100% { top: 96%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .watermark-stage,
+  .hologram-watermark-wrap,
+  .holo-layer,
+  .holo-scanline-bar {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .holo-slice-1,
+  .holo-slice-2,
+  .holo-fringe,
+  .holo-scanline-bar {
+    display: none !important;
+  }
+  
+  .holo-base {
+    opacity: var(--watermark-opacity) !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .vertical-left,
+  .vertical-right,
+  .crosshair-pos-1,
+  .crosshair-pos-2 {
+    display: none;
+  }
+
+  .watermark-stage {
+    width: clamp(180px, 46vw, 280px);
+    transform: translate(-50%, -49%);
+  }
+}

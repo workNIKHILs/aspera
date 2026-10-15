@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASPERA — Entrepreneurship Cell | VVCE Mysuru</title>
+  <meta name="description" content="Official website of ASPERA, the student-driven Entrepreneurship Cell of Vidyavardhaka College of Engineering (VVCE), Mysuru. Actuating Ambition through Ideas, Initiate, Impact.">
+
+  <!-- Typography: Google Fonts (Space Grotesk, Outfit, JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Design Tokens & Stylesheets -->
+  <link rel="stylesheet" href="css/foundation.css?v=4">
+  <link rel="stylesheet" href="css/background.css?v=3">
+  <link rel="stylesheet" href="css/components.css?v=7">
+</head>
+<body>
+
+  <!-- =======================================================================
+       BACKGROUND ENGINE (Fixed Layer System, Charcoal Canvas & Low-Opacity Watermark)
+       ======================================================================= -->
+  <div class="bg-layer-system" id="bg-system" aria-hidden="true">
+    <div class="bg-gradient-depth"></div>
+    <div class="bg-grit-overlay"></div>
+    <div class="bg-scanlines"></div>
+    <div class="bg-crosshair crosshair-pos-1"></div>
+    <div class="bg-crosshair crosshair-pos-2"></div>
+    <div class="bg-vertical-text vertical-left">[ C ] &nbsp;&bull;&nbsp; A S P E R A</div>
+    <div class="bg-vertical-text vertical-right">BUILD &nbsp;&bull;&nbsp; CONNECT &nbsp;&bull;&nbsp; CREATE</div>
+
+    <!-- Central Low-Opacity ASPERA Emblem Watermark -->
+    <div class="watermark-stage" id="watermark-stage">
+      <div class="hologram-watermark-wrap" id="hologram-watermark">
+        <img 
+          src="assets/aspera-watermark-symbol.png" 
+          alt="" 
+          class="holo-layer holo-base"
+          draggable="false"
+        />
+        <img 
+          src="assets/aspera-watermark-symbol.png" 
+          alt="" 
+          class="holo-layer holo-slice-1"
+          draggable="false"
+        />
+        <img 
+          src="assets/aspera-watermark-symbol.png" 
+          alt="" 
+          class="holo-layer holo-slice-2"
+          draggable="false"
+        />
+        <img 
+          src="assets/aspera-watermark-symbol.png" 
+          alt="" 
+          class="holo-layer holo-fringe"
+          draggable="false"
+        />
+        <div class="holo-scanline-bar"></div>
+      </div>
+    </div>
+
+    <div class="bg-vignette"></div>
+  </div>
+
+  <!-- =======================================================================
+       SECTION 1: TOP NAVIGATION BAR (Sticky, Responsive, Frosted Glass)
+       ======================================================================= -->
+  <header class="site-nav" id="site-nav">
+    <div class="nav-wrapper">
+      
+      <!-- Brand Lockup: Emblem + Wordmark + Tagline -->
+      <a href="#hero" class="nav-brand-link" aria-label="ASPERA VVCE Home">
+        <img src="assets/aspera-emblem.png" alt="ASPERA Emblem" class="nav-emblem">
+        <div class="nav-brand-text">
+          <div class="nav-brand-row">
+            <span class="nav-brand-title">ASPERA</span>
+          </div>
+          <span class="nav-brand-tagline">ACTUATING AMBITION</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav aria-label="Main Website Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#hero" class="nav-link is-active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#vision" class="nav-link">Vision & Role</a></li>
+          <li><a href="#what-we-do" class="nav-link">What We Do</a></li>
+          <li><a href="#events" class="nav-link">Events</a></li>
+          <li><a href="#activities" class="nav-link">Activities</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#team" class="nav-link">Team</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-mobile-cta"><a href="#contact" class="btn btn-primary btn-sm js-open-join-modal" style="width: 100%; justify-content: center;">Join Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Action CTA & Mobile Hamburger -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm js-open-join-modal">Join Us</a>
+      </div>
+
+      <button type="button" class="nav-mobile-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger-line line-1"></span>
+        <span class="hamburger-line line-2"></span>
+        <span class="hamburger-line line-3"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- =======================================================================
+       MAIN SITE CONTENT (Decoupled Foreground Layer)
+       ======================================================================= -->
+  <main class="site-content" id="main-content">
+
+    <!-- =====================================================================
+         SECTION 2: HERO SECTION (Wireframe Globe & Network Canvas)
+         ===================================================================== -->
+    <section class="hero-section" id="hero" aria-label="Hero Introduction">
+      <!-- 3D Canvas Mount Point -->
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+      <div class="section-container hero-grid">
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <span class="pulse-dot"></span>
+            VVCE &bull; ENTREPRENEURSHIP CELL
+          </div>
+
+          <h1 class="hero-headline">
+            <span class="headline-line">IDEAS.</span>
+            <span class="headline-line">INITIATE.</span>
+            <span class="headline-line headline-accent">IMPACT.</span>
+          </h1>
+
+          <p class="hero-description">
+            A student-driven entrepreneurship ecosystem at Vidyavardhaka College of Engineering, empowering aspiring innovators and future entrepreneurs.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#events" class="btn btn-primary">
+              <span>EXPLORE EVENTS</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#about" class="btn btn-secondary">
+              <span>DISCOVER ASPERA</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right: Institutional Affiliation & Metric Highlights -->
+        <div class="hero-visual-card">
+          <div class="institution-lockup-card">
+            <img src="assets/vvce-clean.png" alt="VVCE Mysuru Emblem" class="institution-logo">
+            <div class="institution-info">
+              <span class="institution-tag">INSTITUTIONAL BACKING</span>
+              <h2 class="institution-name">Vidyavardhaka College of Engineering</h2>
+              <span class="institution-loc">Mysuru, Karnataka, India</span>
+            </div>
+          </div>
+
+          <div class="hero-pillars-row" aria-label="Brand Philosophy">
+            <div class="hero-pillar-box">
+              <span class="pillar-label">IDEAS</span>
+              <span class="pillar-sub">Cultivating Innovation</span>
+            </div>
+            <div class="hero-pillar-box">
+              <span class="pillar-label">INITIATE</span>
+              <span class="pillar-sub">Venture Creation</span>
+            </div>
+            <div class="hero-pillar-box">
+              <span class="pillar-label">IMPACT</span>
+              <span class="pillar-sub">Empowering Leaders</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 3: ABOUT ASPERA (Editorial Presentation)
+         ===================================================================== -->
+    <section class="content-section" id="about" aria-labelledby="about-title">
+      <div class="section-container">
+        <div class="about-grid">
+          
+          <div class="about-visual-side">
+            <div class="about-emblem-showcase">
+              <img src="assets/aspera-emblem.png" alt="ASPERA Emblem" class="about-emblem-img">
+              <div class="about-emblem-title">ASPERA</div>
+              <div class="about-emblem-sub">ENTREPRENEURSHIP CELL &bull; VVCE</div>
+            </div>
+          </div>
+
+          <div class="about-text-content">
+            <div class="section-eyebrow">ABOUT OUR MOVEMENT</div>
+            <h2 class="section-title" id="about-title">MORE THAN A CLUB. A CULTURE OF INNOVATION.</h2>
+            <p class="about-lead-text">
+              ASPERA is the Entrepreneurship Cell of Vidyavardhaka College of Engineering, Mysuru. It acts as a student-driven community backed by the institution to foster a vibrant startup and business culture.
+            </p>
+
+            <ul class="about-feature-list">
+              <li class="about-feature-item">
+                <div class="about-feature-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="about-feature-text">
+                  <strong>Startup Culture & Innovation</strong>
+                  Cultivating creative ideation and converting engineering problem statements into real-world business models.
+                </div>
+              </li>
+              <li class="about-feature-item">
+                <div class="about-feature-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="about-feature-text">
+                  <strong>Mentorship & Industry Linkage</strong>
+                  Direct guidance from seasoned entrepreneurs, startup founders, institutional leaders, and corporate executives.
+                </div>
+              </li>
+              <li class="about-feature-item">
+                <div class="about-feature-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="about-feature-text">
+                  <strong>Student Leadership & Team Building</strong>
+                  Hands-on execution experience organizing campus initiatives, venture challenges, and collaborative cohorts.
+                </div>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 4: VISION AND ROLE (Two Distinct Panels)
+         ===================================================================== -->
+    <section class="content-section section-alt" id="vision" aria-labelledby="vision-title">
+      <div class="section-container">
+        
+        <div class="section-header-block text-center">
+          <div class="section-eyebrow">CORE MANDATE</div>
+          <h2 class="section-title" id="vision-title">OUR GUIDING PRINCIPLES</h2>
+          <p class="section-subtitle">
+            Distinct pillars defining our strategic roadmap and institutional role at Vidyavardhaka College of Engineering.
+          </p>
+        </div>
+
+        <div class="vision-role-grid">
+          
+          <!-- Panel 1: VISION -->
+          <div class="panel-card panel-card-vision">
+            <div class="panel-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <div class="panel-label">ORGANISATIONAL HORIZON</div>
+            <h3 class="panel-title">VISION</h3>
+            <p class="panel-body-text">
+              To encourage, nurture, and mold entrepreneurship, innovation, and startup ideas among future leaders.
+            </p>
+          </div>
+
+          <!-- Panel 2: ROLE -->
+          <div class="panel-card panel-card-role">
+            <div class="panel-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="panel-label">COMMUNITY MISSION</div>
+            <h3 class="panel-title">ROLE</h3>
+            <p class="panel-body-text">
+              Acting as a student-driven community backed by the institution to foster a vibrant startup and business culture.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 5: WHAT WE DO (4 Category Cards)
+         ===================================================================== -->
+    <section class="content-section" id="what-we-do" aria-labelledby="what-we-do-title">
+      <div class="section-container">
+        
+        <div class="section-header-block">
+          <div class="section-eyebrow">CORE INITIATIVES</div>
+          <h2 class="section-title" id="what-we-do-title">WHAT WE DO</h2>
+          <p class="section-subtitle">
+            Empowering engineers and student founders across every phase of the entrepreneurial lifecycle.
+          </p>
+        </div>
+
+        <div class="categories-grid">
+          
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path></svg>
+              </div>
+              <span class="category-tag">FOUNDATION</span>
+            </div>
+            <h3 class="category-title">Entrepreneurship & Innovation</h3>
+            <p class="category-desc">
+              Instilling startup thinking, problem discovery, and modern entrepreneurial mindsets across engineering disciplines.
+            </p>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <span class="category-tag">CAPABILITY</span>
+            </div>
+            <h3 class="category-title">Workshops & Interactive Sessions</h3>
+            <p class="category-desc">
+              Hands-on masterclasses, business model canvas sessions, prototype development, and mentor interaction.
+            </p>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"></path><path d="M18 8h4a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-4"></path><circle cx="8" cy="12" r="2"></circle></svg>
+              </div>
+              <span class="category-tag">INCUBATION</span>
+            </div>
+            <h3 class="category-title">Startup Ecosystem Support</h3>
+            <p class="category-desc">
+              Connecting student ideas with campus incubation resources, faculty mentorship, prototype validation, and peer co-founders.
+            </p>
+          </div>
+
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <span class="category-tag">ECOSYSTEM</span>
+            </div>
+            <h3 class="category-title">Community Building & Drives</h3>
+            <p class="category-desc">
+              Fostering an inclusive campus-wide community of aspiring innovators, co-founders, and cross-functional teams.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 6: FEATURED EVENTS (Two Strictly Independent Events)
+         ===================================================================== -->
+    <section class="content-section section-alt" id="events" aria-labelledby="events-title">
+      <div class="section-container">
+        
+        <div class="section-header-block">
+          <div class="section-eyebrow">UPCOMING SCHEDULE</div>
+          <h2 class="section-title" id="events-title">FEATURED EVENTS</h2>
+          <p class="section-subtitle">
+            Two distinct entrepreneurial experiences featuring renowned leaders and seasoned innovators.
+          </p>
+        </div>
+
+        <div class="events-showcase-grid">
+          
+          <!-- EVENT CARD 01: FROM VISION TO VENTURE (Workshop) -->
+          <article class="event-master-card" id="event-card-workshop">
+            <div class="event-card-banner">
+              <img src="Dr. Chaitra Naraya.jpeg" alt="Dr. Chaitra Narayan Workshop" class="event-banner-img">
+              <span class="event-card-badge">ENTREPRENEURIAL WORKSHOP</span>
+            </div>
+
+            <div class="event-card-body">
+              <div class="event-meta-pills">
+                <span class="meta-pill">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  October 17, 2026
+                </span>
+                <span class="meta-pill">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  3:00 PM – 5:00 PM
+                </span>
+                <span class="meta-pill">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  M-202
+                </span>
+              </div>
+
+              <h3 class="event-title-main">FROM VISION TO VENTURE</h3>
+
+              <!-- Speaker Info Strip -->
+              <div class="event-speaker-strip">
+                <img src="Dr. Chaitra Naraya.jpeg" alt="Dr. Chaitra Narayan" class="speaker-avatar">
+                <div class="speaker-strip-info">
+                  <span class="speaker-name-strip">Dr. Chaitra Narayan</span>
+                  <span class="speaker-role-strip">Director – Kodagu Agritec Pvt. Ltd. &bull; Ex-Governor Nominee Syndicate Member, University of Mysore</span>
+                </div>
+              </div>
+
+              <p class="event-summary-text">
+                An immersive entrepreneurial workshop exploring the journey from vision to venture, real-world challenges and the lessons that shape entrepreneurial success.
+              </p>
+
+              <div class="event-card-actions">
+                <a href="event-workshop.html" class="btn btn-primary btn-sm">
+                  <span>EXPLORE WORKSHOP</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuhJs3Wya7fmkT7D5_X503ui9UicSacB78Zdxkwjfg9s4CqA/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-register btn-sm" data-register-type="workshop" aria-label="Register for From Vision to Venture Workshop (opens in new tab)">
+                  <span>REGISTER NOW</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- EVENT CARD 02: ENTREPRENEURIAL SPEAKER SESSION -->
+          <article class="event-master-card" id="event-card-speakers">
+            <div class="event-card-banner">
+              <img src="assets/speakers-session-full.png" alt="Speaker Session Srinivas Varadarajan & Rakesh Babu K L" class="event-banner-img">
+              <span class="event-card-badge">SPEAKER SESSION</span>
+            </div>
+
+            <div class="event-card-body">
+              <div class="event-meta-pills">
+                <span class="meta-pill">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  October 17, 2026
+                </span>
+                <span class="meta-pill">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  3:00 PM – 5:00 PM
+                </span>
+                <span class="meta-pill">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  M-201
+                </span>
+              </div>
+
+              <h3 class="event-title-main">ENTREPRENEURIAL SPEAKER SESSION</h3>
+
+              <!-- Speaker Info Strip -->
+              <div class="event-speaker-strip">
+                <img src="assets/speaker-srinivas-varadarajan.png" alt="Srinivas Varadarajan &amp; Rakesh Babu K L" class="speaker-avatar">
+                <div class="speaker-strip-info">
+                  <span class="speaker-name-strip">Srinivas Varadarajan &amp; Rakesh Babu K L</span>
+                  <span class="speaker-role-strip">CEO – Vigyan Labs &bull; COO &amp; Exec Director – Innomentra</span>
+                </div>
+              </div>
+
+              <p class="event-summary-text">
+                An exclusive strategic dialogue and fireside keynote examining startup leadership, enterprise architecture, and commercializing engineering innovation.
+              </p>
+
+              <div class="event-card-actions">
+                <a href="event-speaker-session.html" class="btn btn-primary btn-sm">
+                  <span>EXPLORE SESSION</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc3uWcfASsSQyvS_CR2IjwufmgjDMCIzFe2aNxgpMPsBMf_AQ/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-register btn-sm" data-register-type="speaker" aria-label="Register for Entrepreneurial Speaker Session (opens in new tab)">
+                  <span>REGISTER NOW</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 7: FLAGSHIP ACTIVITIES & INITIATIVES
+         ===================================================================== -->
+    <section class="content-section" id="activities" aria-labelledby="activities-title">
+      <div class="section-container">
+        
+        <div class="section-header-block">
+          <div class="section-eyebrow">YEAR-ROUND ECOSYSTEM</div>
+          <h2 class="section-title" id="activities-title">FLAGSHIP ACTIVITIES</h2>
+          <p class="section-subtitle">
+            ASPERA's signature campus platforms, flagship summits, and community skill-building programs driving enterprise culture across VVCE Mysuru.
+          </p>
+        </div>
+
+        <!-- Tier 1: Two Flagship Events -->
+        <div class="flagship-tier-block">
+          <div class="section-sub-eyebrow">FLAGSHIP EVENTS</div>
+          <div class="flagship-events-grid">
+            
+            <div class="activity-card activity-card-flagship">
+              <div class="flagship-card-header">
+                <span class="activity-badge badge-flagship">SIGNATURE FLAGSHIP</span>
+                <span class="flagship-indicator">ANNUAL PLATFORM</span>
+              </div>
+              <h3 class="activity-title flagship-title">E-Week (Entrepreneurship Week)</h3>
+              <p class="activity-desc">
+                ASPERA's multi-day campus festival celebrating enterprise and creativity through intensive ideation bootcamps, problem-solving challenges, and student venture showcases.
+              </p>
+            </div>
+
+            <div class="activity-card activity-card-flagship">
+              <div class="flagship-card-header">
+                <span class="activity-badge badge-flagship">SIGNATURE FLAGSHIP</span>
+                <span class="flagship-indicator">ANNUAL SUMMIT</span>
+              </div>
+              <h3 class="activity-title flagship-title">E-Summit (Entrepreneurship Summit)</h3>
+              <p class="activity-desc">
+                The premier entrepreneurship convention uniting student innovators, industry pioneers, ecosystem partners, and keynote speakers for high-impact dialogues and venture opportunities.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tier 2: Supporting Initiatives -->
+        <div class="supporting-tier-block">
+          <div class="section-sub-eyebrow">SUPPORTING INITIATIVES</div>
+          <div class="supporting-grid">
+            
+            <div class="activity-card">
+              <span class="activity-badge">COMPETITION</span>
+              <h3 class="activity-title">Pitch Fest</h3>
+              <p class="activity-desc">
+                Annual campus pitching arena where student innovators present ideas to invited industry mentors, alumni founders, and jury panels.
+              </p>
+            </div>
+
+            <div class="activity-card">
+              <span class="activity-badge">ANNUAL CELEBRATION</span>
+              <h3 class="activity-title">National Startup Day</h3>
+              <p class="activity-desc">
+                Commemorative symposium honoring India's vibrant startup landscape, featuring panel discussions, student exhibits, and keynote addresses.
+              </p>
+            </div>
+
+            <div class="activity-card">
+              <span class="activity-badge">SKILL BUILDING</span>
+              <h3 class="activity-title">Entrepreneurship Workshops</h3>
+              <p class="activity-desc">
+                Focused technical and business workshops on MVP validation, IP filing, unit economics, and go-to-market strategies.
+              </p>
+            </div>
+
+            <div class="activity-card">
+              <span class="activity-badge">FOUNDER FIRESIDES</span>
+              <h3 class="activity-title">Interactive Sessions</h3>
+              <p class="activity-desc">
+                Intimate fireside chats with alumni founders, venture mentors, and regional ecosystem leaders sharing candid entrepreneurial stories.
+              </p>
+            </div>
+
+            <div class="activity-card">
+              <span class="activity-badge">COMMUNITY ONBOARDING</span>
+              <h3 class="activity-title">Membership Drives</h3>
+              <p class="activity-desc">
+                Annual talent discovery and community orientation welcoming passionate student leaders into ASPERA's core functional cohorts.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 8: GALLERY (Visual Archive & Community Showcase)
+         ===================================================================== -->
+    <section class="content-section section-alt" id="gallery" aria-labelledby="gallery-title">
+      <div class="section-container">
+        
+        <div class="section-header-block">
+          <div class="section-eyebrow">VISUAL ARCHIVE</div>
+          <h2 class="section-title" id="gallery-title">COMMUNITY GALLERY</h2>
+          <p class="section-subtitle">
+            Authentic records of student innovation, speaker engagements, and community initiatives at VVCE.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          
+          <!-- Card 1: Student Entrepreneurship Team (Portrait featured card) -->
+          <div class="gallery-card gallery-card-tall" data-desc="ASPERA student organizing committee assembled at the campus E-Week '26 entrance arch.">
+            <div class="gallery-thumb-wrap">
+              <img src="assets/gallery/student-entrepreneurship-team.png" alt="ASPERA Student Entrepreneurship Team assembled in front of the E-Week '26 entrance arch" class="gallery-thumb-img" loading="lazy" style="object-position: center 15%;">
+              <div class="gallery-overlay-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-category">STUDENT LEADERSHIP</div>
+              <h3 class="gallery-title">Student Entrepreneurship Team</h3>
+            </div>
+          </div>
+
+          <!-- Card 2: Startup Odyssey -->
+          <div class="gallery-card" data-desc="Panel discussion and ideation dialogue during the Startup Odyssey segment of E-Week '26.">
+            <div class="gallery-thumb-wrap">
+              <img src="assets/gallery/startup-odyssey.png" alt="Startup Odyssey panel discussion on stage with E-Week '26 Break The Norm backdrop" class="gallery-thumb-img" loading="lazy" style="object-position: center 35%;">
+              <div class="gallery-overlay-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-category">E-WEEK '26</div>
+              <h3 class="gallery-title">Startup Odyssey</h3>
+            </div>
+          </div>
+
+          <!-- Card 3: ASPERA Buildathon -->
+          <div class="gallery-card" data-desc="Student innovators and mentors assembled around the ASPERA Build &amp; Beyond banner.">
+            <div class="gallery-thumb-wrap">
+              <img src="assets/gallery/aspera-buildathon.png" alt="Student participants and mentors gathered around the ASPERA Build and Beyond banner" class="gallery-thumb-img" loading="lazy" style="object-position: center 30%;">
+              <div class="gallery-overlay-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-category">INNOVATION</div>
+              <h3 class="gallery-title">ASPERA Buildathon</h3>
+            </div>
+          </div>
+
+          <!-- Card 4: Entrepreneurial Community Session -->
+          <div class="gallery-card" data-desc="Interactive entrepreneurship session with students and faculty gathered in the auditorium.">
+            <div class="gallery-thumb-wrap">
+              <img src="assets/gallery/entrepreneurial-community-session.png" alt="Entrepreneurial Community Session with audience and faculty seated in the auditorium hall" class="gallery-thumb-img" loading="lazy" style="object-position: center center;">
+              <div class="gallery-overlay-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-category">INTERACTIVE SESSION</div>
+              <h3 class="gallery-title">Entrepreneurial Community Session</h3>
+            </div>
+          </div>
+
+          <!-- Card 5: ASPERA Community Gathering -->
+          <div class="gallery-card" data-desc="ASPERA community members, student organizers, and faculty mentors gathered at VVCE Mysuru.">
+            <div class="gallery-thumb-wrap">
+              <img src="assets/gallery/aspera-community-gathering.png" alt="ASPERA Community Gathering group photograph of students and faculty on stage at VVCE" class="gallery-thumb-img" loading="lazy" style="object-position: center 30%;">
+              <div class="gallery-overlay-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-category">COMMUNITY</div>
+              <h3 class="gallery-title">ASPERA Community Gathering</h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 9: OUR TEAM (Core Leadership Team)
+         ===================================================================== -->
+    <section class="content-section" id="team" aria-labelledby="team-title">
+      <div class="section-container">
+        
+        <div class="section-header-block text-center">
+          <div class="section-eyebrow">CORE LEADERSHIP</div>
+          <h2 class="section-title" id="team-title">OUR TEAM</h2>
+          <p class="section-subtitle">
+            The core team driving entrepreneurship, operations, initiatives, and outreach at VVCE Mysuru.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          
+          <div class="team-card">
+            <div class="team-accent-bar" aria-hidden="true"></div>
+            <h3 class="team-member-name">Sadhvi HM</h3>
+            <span class="team-member-role">E-Lead</span>
+          </div>
+
+          <div class="team-card">
+            <div class="team-accent-bar" aria-hidden="true"></div>
+            <h3 class="team-member-name">Chiranthan M S</h3>
+            <span class="team-member-role">Documentation Lead</span>
+          </div>
+
+          <div class="team-card">
+            <div class="team-accent-bar" aria-hidden="true"></div>
+            <h3 class="team-member-name">Thilak S</h3>
+            <span class="team-member-role">Event Management Lead</span>
+          </div>
+
+          <div class="team-card">
+            <div class="team-accent-bar" aria-hidden="true"></div>
+            <h3 class="team-member-name">Yatharth Agarwal</h3>
+            <span class="team-member-role">Finance Lead</span>
+          </div>
+
+          <div class="team-card">
+            <div class="team-accent-bar" aria-hidden="true"></div>
+            <h3 class="team-member-name">Suhani</h3>
+            <span class="team-member-role">Social Media Lead</span>
+          </div>
+
+          <div class="team-card">
+            <div class="team-accent-bar" aria-hidden="true"></div>
+            <h3 class="team-member-name">Yash Bharadwaj B S</h3>
+            <span class="team-member-role">Sponsorship Lead</span>
+          </div>
+
+          <div class="team-card">
+            <div class="team-accent-bar" aria-hidden="true"></div>
+            <h3 class="team-member-name">Priya</h3>
+            <span class="team-member-role">Marketing Lead</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 10: CONTACT & COMMUNITY ECOSYSTEM
+         ===================================================================== -->
+    <section class="content-section section-alt" id="contact" aria-labelledby="contact-title">
+      <span id="community" style="position: absolute; top: -80px;"></span>
+      <div class="section-container">
+        
+        <div class="section-header-block text-center">
+          <div class="section-eyebrow">GET IN TOUCH &amp; CONNECT</div>
+          <h2 class="section-title" id="contact-title">CONTACT &amp; COMMUNITY</h2>
+          <p class="section-subtitle">
+            Connect with the ASPERA Entrepreneurship Cell at Vidyavardhaka College of Engineering, engage with our organizers, and access upcoming campus opportunities.
+          </p>
+        </div>
+
+        <div class="contact-ecosystem-grid">
+          
+          <!-- Column 1: Direct Contact & Campus Base -->
+          <div class="contact-card">
+            <div class="contact-card-header">
+              <div class="contact-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <span class="contact-badge">CAMPUS BASE</span>
+                <h3 class="contact-card-title">Institutional Location</h3>
+              </div>
+            </div>
+            
+            <p class="contact-info-text">
+              <strong>Vidyavardhaka College of Engineering</strong><br>
+              P.B. No. 206, Kannada Sahitya Parishath Road, Gokulam 3rd Stage, Mysuru – 570002, Karnataka, India
+            </p>
+
+            <div class="contact-channel-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div>
+                <div class="contact-channel-label">Official Inquiries</div>
+                <a href="mailto:aspera@vvce.ac.in" class="contact-channel-val">aspera@vvce.ac.in</a>
+              </div>
+            </div>
+
+            <div class="contact-channel-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <div>
+                <div class="contact-channel-label">Institutional Portal</div>
+                <a href="https://vvce.ac.in/" target="_blank" rel="noopener noreferrer" class="contact-channel-val">vvce.ac.in</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Digital Channels & Community Onboarding -->
+          <div class="contact-card contact-card-highlight">
+            <div class="contact-card-header">
+              <div class="contact-icon-box cyan-accent">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <div>
+                <span class="contact-badge badge-cyan">GET INVOLVED</span>
+                <h3 class="contact-card-title">ASPERA Ecosystem</h3>
+              </div>
+            </div>
+
+            <p class="contact-info-text">
+              Follow our official media channels to receive real-time announcements on bootcamps, workshops, membership recruitments, and speaker sessions.
+            </p>
+
+            <div class="contact-social-buttons">
+              <!-- Official Instagram -->
+              <a href="https://www.instagram.com/vvce_aspera/" target="_blank" rel="noopener noreferrer" class="social-button instagram" aria-label="Visit ASPERA on Instagram (opens in new tab)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Instagram &bull; @vvce_aspera</span>
+              </a>
+
+              <!-- Official LinkedIn -->
+              <a href="https://www.linkedin.com/company/e-cell-aspera-vvce/" target="_blank" rel="noopener noreferrer" class="social-button linkedin" aria-label="Visit ASPERA on LinkedIn (opens in new tab)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span>LinkedIn &bull; ASPERA E-Cell</span>
+              </a>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <button type="button" class="btn btn-primary js-open-join-modal" style="width: 100%; justify-content: center;">
+                <span>JOIN THE COMMUNITY</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       SECTION 11: FOOTER
+       ======================================================================= -->
+  <footer class="site-footer">
+    <div class="section-container">
+      
+      <div class="footer-top-grid">
+        
+        <div class="footer-brand-side">
+          <div class="footer-brand-row">
+            <img src="assets/aspera-emblem.png" alt="ASPERA Logo" class="footer-logo">
+            <span class="footer-brand-name">ASPERA</span>
+          </div>
+          <span class="footer-tagline">ACTUATING AMBITION</span>
+          <p class="footer-desc">
+            Entrepreneurship Cell, Vidyavardhaka College of Engineering (VVCE), Mysuru. A community dedicated to nurturing ideas, fostering leadership, and empowering tomorrow's founders.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">Navigation</h3>
+          <ul class="footer-links-list">
+            <li><a href="#hero" class="footer-link">Home</a></li>
+            <li><a href="#about" class="footer-link">About ASPERA</a></li>
+            <li><a href="#vision" class="footer-link">Vision & Role</a></li>
+            <li><a href="#what-we-do" class="footer-link">What We Do</a></li>
+            <li><a href="#events" class="footer-link">Featured Events</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">Ecosystem</h3>
+          <ul class="footer-links-list">
+            <li><a href="#activities" class="footer-link">Flagship Programs</a></li>
+            <li><a href="#gallery" class="footer-link">Community Gallery</a></li>
+            <li><a href="#team" class="footer-link">Core Team</a></li>
+            <li><a href="event-workshop.html" class="footer-link">Workshop Details</a></li>
+            <li><a href="event-speaker-session.html" class="footer-link">Speaker Session</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">Connect</h3>
+          <ul class="footer-links-list">
+            <li><a href="https://www.instagram.com/vvce_aspera/" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/company/e-cell-aspera-vvce/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
+            <li><a href="https://vvce.ac.in/" target="_blank" rel="noopener noreferrer" class="footer-link">VVCE Mysuru Portal</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 ASPERA — Entrepreneurship Cell, VVCE Mysuru. All rights reserved.
+        </div>
+        <div>
+          IDEAS &bull; INITIATE &bull; IMPACT
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       IMAGE LIGHTBOX MODAL (For Gallery Showcase)
+       ======================================================================= -->
+  <div class="lightbox-modal" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox-dialog">
+      <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Close image viewer">&times;</button>
+      <button type="button" class="lightbox-nav-btn lightbox-prev-btn" id="lightbox-prev" aria-label="Previous photograph">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button type="button" class="lightbox-nav-btn lightbox-next-btn" id="lightbox-next" aria-label="Next photograph">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+      <div class="lightbox-img-box">
+        <img src="" alt="" id="lightbox-img">
+      </div>
+      <div class="lightbox-caption-box">
+        <div class="lightbox-counter" id="lightbox-counter">1 / 5</div>
+        <h4 class="lightbox-caption-title" id="lightbox-title"></h4>
+        <p class="lightbox-caption-desc" id="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       COMMUNITY MEMBERSHIP MODAL
+       ======================================================================= -->
+  <div class="lightbox-modal" id="community-join-modal" role="dialog" aria-modal="true" aria-label="Join ASPERA Community">
+    <div class="lightbox-dialog" style="max-width: 560px; padding: 2.5rem;">
+      <button type="button" class="lightbox-close-btn" id="join-modal-close" aria-label="Close dialog">&times;</button>
+      <div class="section-eyebrow">GET INVOLVED</div>
+      <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #ffffff; margin-bottom: 0.85rem;">Join ASPERA E-Cell</h3>
+      <p style="font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+        ASPERA welcomes passionate student innovators, aspiring founders, organizers, and creators from all departments at Vidyavardhaka College of Engineering.
+      </p>
+      <div style="background: rgba(16, 25, 35, 0.7); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem;">
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-brand-cyan); margin-bottom: 0.4rem; text-transform: uppercase;">Next Onboarding Window</div>
+        <div style="font-size: 0.95rem; color: #ffffff; font-weight: 600;">Annual Membership Drive & Cohort Orientation</div>
+        <div style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.25rem;">Watch our official social handles for registration announcements.</div>
+      </div>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="https://www.instagram.com/vvce_aspera/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Follow on Instagram</a>
+        <a href="https://www.linkedin.com/company/e-cell-aspera-vvce/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Connect on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js?v=3"></script>
+  <script src="js/background.js?v=3"></script>
+  <script src="js/hero-canvas.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
+
+</body>
+</html>
